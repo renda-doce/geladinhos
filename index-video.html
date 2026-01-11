@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana do Geladinho Gourmet - Isis Alvarez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        primaryDark: 'var(--color-primary-dark)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        bgLight: 'var(--color-bg-light)',
+                        textMain: 'var(--color-text-main)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-effect {
+                @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            }
+        }
+
+        /* Default Theme (Summer Coral/Peach) */
+        :root {
+            --color-primary: #FF512F; 
+            --color-primary-dark: #DD2476;
+            --color-secondary: #F09819;
+            --color-accent: #25D366; /* Whatsapp Green */
+            --color-bg-light: #FFF5F5;
+            --color-text-main: #333333;
+        }
+
+        /* Theme: Fresh Mint */
+        .theme-fresh {
+            --color-primary: #11998e;
+            --color-primary-dark: #38ef7d;
+            --color-secondary: #a8ff78;
+            --color-accent: #25D366;
+            --color-bg-light: #F0FDF4;
+            --color-text-main: #1a2e1a;
+        }
+
+        /* Theme: Deep Berry */
+        .theme-berry {
+            --color-primary: #8E2DE2;
+            --color-primary-dark: #4A00E0;
+            --color-secondary: #E94057;
+            --color-accent: #25D366;
+            --color-bg-light: #F3E8FF;
+            --color-text-main: #2D1B4E;
+        }
+
+        /* Theme: Sunshine */
+        .theme-sun {
+            --color-primary: #F2994A;
+            --color-primary-dark: #F2C94C;
+            --color-secondary: #FF512F;
+            --color-accent: #25D366;
+            --color-bg-light: #FFFCF5;
+            --color-text-main: #4a3b2a;
+        }
+
+        body {
+            @apply bg-bgLight text-textMain transition-colors duration-300;
+        }
+        
+        .btn-cta {
+            @apply bg-accent hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full 
+                   shadow-lg transform hover:-translate-y-1 hover:scale-105 transition-all duration-300
+                   flex items-center justify-center gap-3 text-xl w-full max-w-sm mx-auto animate-pulse;
+        }
+    </style>
+</head>
+
+<body class="antialiased opacity-0 transition-opacity duration-700"
+    onload="document.body.classList.remove('opacity-0')">
+
+
+
+    <!-- MAIN WRAPPER -->
+    <div class="min-h-screen flex flex-col items-center pb-12 relative overflow-hidden">
+
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/10 to-transparent -z-10 rounded-b-[50%] transform scale-150">
+        </div>
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+
+        <!-- HERO SECTION (Video Variation) -->
+        <header class="w-full max-w-lg pt-0 pb-4 flex flex-col items-center text-center z-10">
+
+            <!-- Removed Logo from top to put inside video or below? 
+                 Let's keep it consistent but maybe smaller or overlayed. 
+                 User asked just to replace hero image with video. 
+                 I'll place logo above video as before or integrated?
+                 Let's keep structure similar but swap the image/logo block. 
+            -->
+
+            <div class="mt-10 w-full relative bg-black shadow-2xl mb-6">
+                <!-- Video Container -->
+                <div class="relative w-full aspect-[9/16] md:aspect-video max-h-[80vh] overflow-hidden">
+                    <video id="heroVideo" class="w-full h-full object-cover" autoplay muted loop controls playsinline>
+                        <source src="video/video-hero.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+
+                    <!-- Unmute Overlay -->
+                    <div id="unmuteOverlay"
+                        class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center cursor-pointer z-20 backdrop-blur-[2px] transition-opacity duration-500"
+                        onclick="enableAudio()">
+                        <!-- Logo inside overlay for branding before play -->
+                        <img src="img/logo-semana.png" class="w-32 h-32 object-contain mb-4 animate-bounce" alt="Logo">
+
+                        <div
+                            class="bg-white/20 backdrop-blur-md p-4 rounded-xl border border-white/30 text-white text-center transform scale-100 hover:scale-105 transition-transform">
+                            <i class="fas fa-volume-mute text-4xl mb-2"></i>
+                            <p class="font-bold text-lg uppercase tracking-wider">O vídeo já começou!</p>
+                            <p class="text-sm">Toque para ouvir</p>
+                        </div>
+                    </div>
+
+                    <!-- Sound Control (Hidden initially, shown after unmute) -->
+                    <button id="muteBtn"
+                        class="absolute bottom-4 right-4 z-30 w-10 h-10 bg-black/50 rounded-full text-white hidden items-center justify-center hover:bg-black/70"
+                        onclick="toggleMute(event)">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="px-6">
+                <!-- Headline -->
+                <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-2 text-primaryDark">
+                    ÚLTIMO PASSO
+                    <span class="block text-xl md:text-2xl text-textMain font-sans font-normal mt-2">para garantir a sua
+                        vaga!</span>
+                </h1>
+
+                <!-- CTA 1 -->
+                <div class="w-full mt-6 mb-4">
+                    <a href="#grupo-vip" class="btn-cta">
+                        <i class="fab fa-whatsapp text-3xl"></i>
+                        <span>Entrar no Grupo AGORA</span>
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2 font-medium">👇 Vagas Limitadas!</p>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- CONTENT SECTION -->
+        <main class="w-full max-w-lg px-4 flex flex-col gap-6 z-10">
+
+            <!-- Note: The user said "without hero image and with a video in hero". 
+                 They didn't say to remove the YouTube video in the body, but usually if there is a hero video, 
+                 another video might be redundant or conflicting. 
+                 However, the template has a generic video placeholder. 
+                 The prompt says: "Crie uma variação... sem a imagem do hero e com um video no hero".
+                 I will keep the rest of the body as is for now, assuming the hero video is the "teaser" or "invite" and the body video is the "class" or "explanation".
+            -->
+
+            <!-- Informational Text -->
+            <div
+                class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/40 text-center space-y-4">
+                <div class="space-y-2">
+                    <h2 class="text-xl font-bold text-primaryDark">Importante!</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Após entrar no grupo, <strong class="text-primary">aguarde o início das aulas</strong>. Deixamos
+                        todo o cronograma na descrição do grupo.
+                    </p>
+                </div>
+                <div class="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
+                <!-- YouTube Video (Keeping it as it might be different content, e.g. a specific class vs the hero teaser) -->
+
+
+                <div class="space-y-2">
+                    <p class="text-gray-700 font-medium">
+                        <span class="text-red-500 font-bold block mb-1"><i
+                                class="fas fa-exclamation-triangle mr-2"></i>Não saia do grupo!</span>
+                        Para não perder a sua vaga.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Permaneça até o início das aulas. Se tiver dúvidas, chame a moderação no privado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Counter (Scarcity) -->
+            <div
+                class="bg-gradient-to-r from-primary to-primaryDark rounded-xl p-4 text-white text-center shadow-lg transform scale-100 hover:scale-[1.02] transition-transform">
+                <p class="text-sm uppercase tracking-widest opacity-90 mb-1">Vagas Restantes</p>
+                <div id="vagas-count" class="text-4xl font-bold font-serif tabular-nums tracking-wider">54</div>
+                <div class="w-full bg-black/20 h-2 rounded-full mt-2 overflow-hidden">
+                    <div id="vagas-progress" class="h-full bg-white/90 w-[4%] rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="py-4 w-full" id="grupo-vip">
+                <a href="#" class="btn-cta bg-green-500 hover:bg-green-600">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                    <div class="flex flex-col items-start leading-tight">
+                        <span class="text-sm uppercase font-semibold opacity-90">Garantir minha vaga</span>
+                        <span class="text-xl font-bold">Entrar no Grupo VIP</span>
+                    </div>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-12 text-center pb-8 opacity-60">
+            <img src="img/logo-semana.png" class="h-12 mx-auto grayscale opacity-50 mb-2" alt="Logo Footer">
+            <p class="text-xs">© Isis Alvarez. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function setTheme(themeName) {
+            document.body.className = "antialiased transition-colors duration-700 " + themeName;
+        }
+
+        const video = document.getElementById('heroVideo');
+        const overlay = document.getElementById('unmuteOverlay');
+        const muteBtn = document.getElementById('muteBtn');
+        const muteIcon = muteBtn.querySelector('i');
+
+        // Countdown Logic
+        (function () {
+            const countEl = document.getElementById('vagas-count');
+            const progressEl = document.getElementById('vagas-progress');
+            let count = 54;
+            const minCount = 3;
+
+            function updateCounter() {
+                if (count > minCount) {
+                    count--;
+                    if (countEl) countEl.innerText = count;
+
+                    if (progressEl) {
+                        const percentage = Math.max(1, (count / 100) * 8);
+                        progressEl.style.width = percentage + '%';
+                    }
+
+                    // Schedule next update
+                    const randomTime = Math.floor(Math.random() * (4000 - 1000 + 1) + 1000); // 1 to 4 seconds
+                    setTimeout(updateCounter, randomTime);
+                }
+            }
+
+            // Start the loop
+            setTimeout(updateCounter, 2000);
+        })();
+
+        function enableAudio() {
+            video.muted = false;
+            video.play();
+            // Hide overlay
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            // Show mute button
+            muteBtn.classList.remove('hidden');
+            muteBtn.classList.add('flex');
+        }
+
+        function toggleMute(e) {
+            e.stopPropagation();
+            if (video.muted) {
+                video.muted = false;
+                muteIcon.classList.remove('fa-volume-mute');
+                muteIcon.classList.add('fa-volume-up');
+            } else {
+                video.muted = true;
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-mute');
+            }
+        }
+    </script>
+</body>
+
+</html>

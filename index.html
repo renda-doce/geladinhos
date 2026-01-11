@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana do Geladinho Gourmet - Isis Alvarez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        primaryDark: 'var(--color-primary-dark)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        bgLight: 'var(--color-bg-light)',
+                        textMain: 'var(--color-text-main)',
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('img/DSC_6604.jpg')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-effect {
+                @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            }
+        }
+
+        /* Default Theme (Summer Coral/Peach) */
+        :root {
+            --color-primary: #FF512F; 
+            --color-primary-dark: #DD2476;
+            --color-secondary: #F09819;
+            --color-accent: #25D366; /* Whatsapp Green */
+            --color-bg-light: #FFF5F5;
+            --color-text-main: #333333;
+        }
+
+        /* Theme: Fresh Mint */
+        .theme-fresh {
+            --color-primary: #11998e;
+            --color-primary-dark: #38ef7d;
+            --color-secondary: #a8ff78;
+            --color-accent: #25D366;
+            --color-bg-light: #F0FDF4;
+            --color-text-main: #1a2e1a;
+        }
+
+        /* Theme: Deep Berry */
+        .theme-berry {
+            --color-primary: #8E2DE2;
+            --color-primary-dark: #4A00E0;
+            --color-secondary: #E94057;
+            --color-accent: #25D366;
+            --color-bg-light: #F3E8FF;
+            --color-text-main: #2D1B4E;
+        }
+
+        /* Theme: Sunshine */
+        .theme-sun {
+            --color-primary: #F2994A;
+            --color-primary-dark: #F2C94C;
+            --color-secondary: #FF512F;
+            --color-accent: #25D366;
+            --color-bg-light: #FFFCF5;
+            --color-text-main: #4a3b2a;
+        }
+
+        body {
+            @apply bg-bgLight text-textMain transition-colors duration-300;
+        }
+        
+        .btn-cta {
+            @apply bg-accent hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full 
+                   shadow-lg transform hover:-translate-y-1 hover:scale-105 transition-all duration-300
+                   flex items-center justify-center gap-3 text-xl w-full max-w-sm mx-auto animate-pulse;
+        }
+    </style>
+</head>
+
+<body class="antialiased opacity-0 transition-opacity duration-700"
+    onload="document.body.classList.remove('opacity-0')">
+
+    <!-- Theme Switcher (Hidden in production or for demo) -->
+
+    <!-- MAIN WRAPPER -->
+    <div class="min-h-screen flex flex-col items-center pb-12 relative overflow-hidden">
+
+        <!-- Background Blobs/Decorations -->
+        <div
+            class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/10 to-transparent -z-10 rounded-b-[50%] transform scale-150">
+        </div>
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+
+        <!-- HERO SECTION -->
+        <header class="w-full max-w-lg px-6 pt-8 pb-4 flex flex-col items-center text-center z-10">
+
+            <!-- Logo -->
+            <div
+                class="w-40 h-40 mb-6 bg-white rounded-full shadow-2xl flex items-center justify-center overflow-hidden border-4 border-white transform hover:rotate-3 transition-transform duration-500">
+                <img src="img/logo-semana.png" alt="Logo Semana Geladinho Gourmet" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Headline -->
+            <h1 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-2 text-primaryDark">
+                ÚLTIMO PASSO
+                <span class="block text-xl md:text-2xl text-textMain font-sans font-normal mt-2">para garantir a sua
+                    vaga!</span>
+            </h1>
+
+            <!-- Hero Image within Content (as requested) -->
+            <div
+                class="relative w-full aspect-[4/3] my-6 rounded-2xl overflow-hidden shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 group">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <!-- Using one of the provided images -->
+                <img src="img/DSC_6604.jpg" alt="Geladinhos Gourmet"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute bottom-4 left-4 z-20 text-white text-left">
+                    <p class="font-bold text-lg text-shadow">Semana do</p>
+                    <p class="font-serif text-2xl font-bold text-shadow">Geladinho Gourmet</p>
+                </div>
+            </div>
+
+            <!-- CTA 1 (First Fold) -->
+            <div class="w-full mt-2 mb-8">
+                <a href="#grupo-vip" class="btn-cta">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                    <span>Entrar no Grupo AGORA</span>
+                </a>
+                <p class="text-sm text-gray-500 mt-2 font-medium">👇 Vagas Limitadas!</p>
+            </div>
+
+        </header>
+
+        <!-- CONTENT SECTION -->
+        <main class="w-full max-w-lg px-4 flex flex-col gap-6 z-10">
+
+            <!-- Video Section -->
+            <div class="w-full glass-effect rounded-2xl p-2 md:p-4">
+                <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden bg-black shadow-inner">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/RZJqwWDJl5s"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Informational Text -->
+            <div
+                class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/40 text-center space-y-4">
+
+                <div class="space-y-2">
+                    <h2 class="text-xl font-bold text-primaryDark">Importante!</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Após entrar no grupo, <strong class="text-primary">aguarde o início das aulas</strong>. Deixamos
+                        todo o cronograma na descrição do grupo.
+                    </p>
+                </div>
+
+                <div class="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
+
+                <div class="space-y-2">
+                    <p class="text-gray-700 font-medium">
+                        <span class="text-red-500 font-bold block mb-1"><i
+                                class="fas fa-exclamation-triangle mr-2"></i>Não saia do grupo!</span>
+                        Para não perder a sua vaga.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Permaneça até o início das aulas. Se tiver dúvidas, chame a moderação no privado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Counter (Scarcity) -->
+            <div
+                class="bg-gradient-to-r from-primary to-primaryDark rounded-xl p-4 text-white text-center shadow-lg transform scale-100 hover:scale-[1.02] transition-transform">
+                <p class="text-sm uppercase tracking-widest opacity-90 mb-1">Vagas Restantes</p>
+                <div id="vagas-count" class="text-4xl font-bold font-serif tabular-nums tracking-wider">54</div>
+                <div class="w-full bg-black/20 h-2 rounded-full mt-2 overflow-hidden">
+                    <div id="vagas-progress" class="h-full bg-white/90 w-[4%] rounded-full"></div>
+                </div>
+                <p class="text-xs mt-1 text-white/80 text-right">96% preenchido</p>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="py-4 w-full" id="grupo-vip">
+                <a href="#" class="btn-cta bg-green-500 hover:bg-green-600">
+                    <!-- Default to typical whatsapp color override if needed, but class handles it -->
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                    <div class="flex flex-col items-start leading-tight">
+                        <span class="text-sm uppercase font-semibold opacity-90">Garantir minha vaga</span>
+                        <span class="text-xl font-bold">Entrar no Grupo VIP</span>
+                    </div>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- FOOTER / DECORATION -->
+        <footer class="mt-12 text-center pb-8 opacity-60">
+
+            <p class="text-xs">© Isis Alvarez. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function setTheme(themeName) {
+            document.body.className = "antialiased transition-colors duration-700 " + themeName;
+            // Save to local storage if persistence is needed
+            // localStorage.setItem('theme', themeName);
+        }
+
+        // Countdown Logic
+        (function () {
+            const countEl = document.getElementById('vagas-count');
+            const progressEl = document.getElementById('vagas-progress');
+            let count = 54;
+            const minCount = 3;
+
+            function updateCounter() {
+                if (count > minCount) {
+                    count--;
+                    if (countEl) countEl.innerText = count;
+
+                    // Optional: Update progress bar width slightly to reflect change
+                    // 54 -> ~4%, 0 -> 0% (inverted since it says 96% filled, meaning 4% left)
+                    // Let's assume 54 is starting point. 
+                    // 96% filled means 4% empty? Or 4% remaining capacity?
+                    // Let's just make it look dynamic.
+                    if (progressEl) {
+                        // slightly decrease width as count goes down
+                        // just a visual effect
+                        const percentage = Math.max(1, (count / 100) * 8); // approximate scaling
+                        progressEl.style.width = percentage + '%';
+                    }
+
+                    // Schedule next update
+                    const randomTime = Math.floor(Math.random() * (4000 - 1000 + 1) + 1000); // 1 to 4 seconds
+                    setTimeout(updateCounter, randomTime);
+                }
+            }
+
+            // Start the loop
+            setTimeout(updateCounter, 2000);
+        })();
+    </script>
+</body>
+
+</html>
