@@ -95,6 +95,7 @@
                    flex items-center justify-center gap-3 text-xl w-full max-w-sm mx-auto animate-pulse;
         }
     </style>
+    <script src="js/tracking.js"></script>
 </head>
 
 <body class="antialiased opacity-0 transition-opacity duration-700"
@@ -129,7 +130,7 @@
                 </div>
                 <div
                     class="relative w-full aspect-[9/16] md:aspect-video max-h-[85vh] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/40 ring-1 ring-white/20 backface-hidden transform hover:scale-[1.01] transition-transform duration-500">
-                    <video id="heroVideo" class="w-full h-full object-cover" autoplay muted loop playsinline>
+                    <video id="heroVideo" class="w-full h-full object-cover" autoplay controls muted loop playsinline>
                         <source src="video/video-hero.mp4" type="video/mp4">
                         Seu navegador não suporta vídeos.
                     </video>
