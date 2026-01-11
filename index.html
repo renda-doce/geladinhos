@@ -158,13 +158,84 @@
         <!-- CONTENT SECTION -->
         <main class="w-full max-w-lg px-4 flex flex-col gap-6 z-10">
 
-            <!-- Video Section -->
-            <div class="w-full glass-effect rounded-2xl p-2 md:p-4">
+            <div
+                class="w-full glass-effect rounded-2xl p-2 md:p-4 hover:scale-[1.01] transition-transform duration-500">
                 <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden bg-black shadow-inner">
                     <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/RZJqwWDJl5s"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- CURSO AGENDA / CRONOGRAMA -->
+            <div
+                class="glass-effect rounded-2xl p-6 shadow-2xl border-2 border-white/50 relative overflow-hidden group">
+                <!-- Decoration -->
+                <div
+                    class="absolute -right-10 -top-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-colors">
+                </div>
+
+                <div class="text-center mb-6 relative z-10">
+                    <p class="text-sm font-bold text-accent uppercase tracking-widest mb-1">O que você vai aprender?</p>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-primaryDark leading-tight">
+                        Sejam bem-vindos ao curso gratuito de <br /><span class="text-primary">Geladinhos Gourmet</span>
+                        👩🏻‍🍳
+                    </h2>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <!-- Aula 1 -->
+                    <div
+                        class="bg-white/60 hover:bg-white/90 p-4 rounded-xl shadow-sm border border-white/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-primary/10 text-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center shrink-0">
+                                💜</div>
+                            <div>
+                                <h3 class="font-bold text-primaryDark text-lg">Aula 1</h3>
+                                <p class="text-gray-700 font-medium">Geladinho de Ninho com Nutella e Geladinho de
+                                    Prestígio</p>
+                                <span
+                                    class="inline-block mt-1 text-xs font-bold text-white bg-primary px-2 py-0.5 rounded-full shadow-sm">🏆
+                                    Campeões em Vendas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aula 2 -->
+                    <div
+                        class="bg-white/60 hover:bg-white/90 p-4 rounded-xl shadow-sm border border-white/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-secondary/10 text-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center shrink-0">
+                                💚</div>
+                            <div>
+                                <h3 class="font-bold text-green-700 text-lg">Aula 2</h3>
+                                <p class="text-gray-700 font-medium">Geladinho Tricolor Cítrico</p>
+                                <p class="text-sm text-gray-600 mt-1 leading-snug">Morango, maracujá e limão.
+                                    <br /><span class="italic text-primaryDark">✨ Especial desenvolvido pela Chef</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aula 3 -->
+                    <div
+                        class="bg-white/60 hover:bg-white/90 p-4 rounded-xl shadow-sm border border-white/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-red-100 text-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center shrink-0">
+                                ❤️</div>
+                            <div>
+                                <h3 class="font-bold text-red-600 text-lg">Aula 3</h3>
+                                <p class="text-gray-700 font-medium">Lançamento da Apostila Especial</p>
+                                <p class="text-sm font-bold text-red-500 mt-1 flex items-center gap-1">
+                                    <i class="fas fa-lock"></i> + Receita Secreta
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
