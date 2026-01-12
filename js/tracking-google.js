@@ -30,7 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // 1. Atualiza o link do WhatsApp
         button.href = SITE_CONFIG.whatsappUrl;
 
-        // 2. Adiciona o evento de Lead ao clicar
+        // 2. Configurações típicas de CTA - abre em nova aba
+        button.target = '_blank';
+        button.rel = 'noopener noreferrer';
+
+        // 3. Adiciona o evento de Lead ao clicar
         button.addEventListener('click', function () {
             // Envia evento de conversão para Google Ads
             gtag('event', 'conversion', {
